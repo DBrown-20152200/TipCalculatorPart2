@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TipCalculatorPart2.MainPage"
+             Title="TipCalculator Part2"
+             MaximumWidthRequest="350"
+             MaximumHeightRequest="550">
+
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center">
+            <HorizontalStackLayout HorizontalOptions="Start">
+                <Label
+                Text="Bill"
+                FontSize="20"
+                WidthRequest="100"
+            />
+                <Label
+                x:Name="billAmount"
+                Text="$0.00"
+                FontSize="20"
+                WidthRequest="100"
+            />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Start">
+                <Label
+                Text="Tip"
+                FontSize="20"
+                WidthRequest="100"
+            />
+                <Label
+                x:Name="tipAmount"
+                Text="$0.00"
+                FontSize="20"
+                WidthRequest="100"
+            />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Start">
+                <Label
+                Text="Total"
+                FontSize="20"
+                WidthRequest="100"
+            />
+                <Label
+                x:Name="totalAmount"
+                Text="$0.00"
+                FontSize="20"
+                WidthRequest="100"
+            />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Start">
+                <Label
+                Text="Cost per Diner"
+                FontSize="20"
+                WidthRequest="150"
+            />
+                <Label
+                x:Name="perDinerAmount"
+                Text="$0.00"
+                FontSize="20"
+                WidthRequest="100"
+            />
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Start">
+                    <Label
+                Text="Diners"
+                FontSize="20"
+                WidthRequest="100"
+                />
+
+                    <Label
+                x:Name="dinersAmount"
+                Text="1"
+                FontSize="20"
+                WidthRequest="85"
+                />
+
+                    <Stepper
+                x:Name="dinerStepperAmount"
+                Scale="0.75"
+                Minimum="1"
+                Value="1"
+                Increment="1"
+                ValueChanged="DinerStepperAmount_ValueChanged"
+                />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout HorizontalOptions="Center">
+                <Label HeightRequest="20"/>
+                <HorizontalStackLayout>
+                    <Button
+                    x:Name="buttonSeven"
+                    Text="7"
+                    FontSize="20"
+                    Clicked="ButtonClicked"
+                />
+                    <Button
+                    x:Name="buttonEight"
+                    Text="8"
+                    FontSize="20"
+                    Clicked="ButtonClicked"                       
+                />
+                    <Button
+                    x:Name="buttonNine"
+                    Text="9"
+                    FontSize="20"
+                    Clicked="ButtonClicked"                        
+                />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Button
+                    x:Name="buttonFour"
+                    Text="4"
+                    FontSize="20"
+                    Clicked="ButtonClicked"                        
+                />
+                    <Button
+                    x:Name="buttonFive"
+                    Text="5"
+                    FontSize="20"
+                    Clicked="ButtonClicked" 
+                />
+                    <Button
+                    x:Name="buttonSix"
+                    Text="6"
+                    FontSize="20"
+                    Clicked="ButtonClicked" 
+                />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Button
+                    x:Name="buttonOne"
+                    Text="1"
+                    FontSize="20"
+                    Clicked="ButtonClicked" 
+                />
+                    <Button
+                    x:Name="buttonTwo"
+                    Text="2"
+                    FontSize="20"
+                    Clicked="ButtonClicked" 
+                />
+                    <Button
+                    x:Name="buttonThree"
+                    Text="3"
+                    FontSize="20"
+                    Clicked="ButtonClicked" 
+                />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Button
+                    x:Name="buttonZero"
+                    Text="0"
+                    FontSize="20"
+                    Clicked="ButtonClicked" 
+                />
+                    <Button
+                    x:Name="buttonDecimal"
+                    Text="."
+                    FontSize="20"
+                    Clicked="Point_Clicked"
+                />
+                    <Button
+                    x:Name="buttonClear"
+                    Text="C"
+                    FontSize="20"
+                    Clicked="ClearButtonClicked" 
+                />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout>
+                <Slider
+                x:Name="percentageSlider"
+                Minimum="0"                    
+                Maximum="100"
+                WidthRequest="250"
+                ValueChanged="SliderValueChanged"
+            />
+                <Label WidthRequest="15"/>
+                <Label
+                x:Name="percentageLabel"
+                Text="0%"                    
+            />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
