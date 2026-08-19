@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="TipCalculatorPart2.csproj" />
+  <Project Path="TipCalculatorPart2.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>

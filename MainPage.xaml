@@ -2,70 +2,67 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TipCalculatorPart2.MainPage"
-             Title="TipCalculator Part2"
-             MaximumWidthRequest="350"
-             MaximumHeightRequest="550">
+             Title="TipCalculator Part2">
 
-    <ScrollView>
+    <ScrollView HeightRequest="550" WidthRequest="350">
         <VerticalStackLayout HorizontalOptions="Center">
-            <HorizontalStackLayout HorizontalOptions="Start">
-                <Label
-                Text="Bill"
-                FontSize="20"
-                WidthRequest="100"
-            />
-                <Label
-                x:Name="billAmount"
-                Text="$0.00"
-                FontSize="20"
-                WidthRequest="100"
-            />
-            </HorizontalStackLayout>
+            <VerticalStackLayout HorizontalOptions="Center">
+                <HorizontalStackLayout>
+                    <Label
+                         Text="Bill"
+                         FontSize="20"
+                         WidthRequest="100"
+                     />
+                    <Label
+                         x:Name="billAmount"
+                         Text="$0.00"
+                         FontSize="20"
+                         WidthRequest="100"
+                     />
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="Start">
-                <Label
-                Text="Tip"
-                FontSize="20"
-                WidthRequest="100"
-            />
-                <Label
-                x:Name="tipAmount"
-                Text="$0.00"
-                FontSize="20"
-                WidthRequest="100"
-            />
-            </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                         Text="Tip"
+                         FontSize="20"
+                         WidthRequest="100"
+                     />
+                    <Label
+                         x:Name="tipAmount"
+                         Text="$0.00"
+                         FontSize="20"
+                         WidthRequest="100"
+                     />
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="Start">
-                <Label
-                Text="Total"
-                FontSize="20"
-                WidthRequest="100"
-            />
-                <Label
-                x:Name="totalAmount"
-                Text="$0.00"
-                FontSize="20"
-                WidthRequest="100"
-            />
-            </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                         Text="Total"
+                         FontSize="20"
+                         WidthRequest="100"
+                     />
+                    <Label
+                         x:Name="totalAmount"
+                         Text="$0.00"
+                         FontSize="20"
+                         WidthRequest="100"
+                     />
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout HorizontalOptions="Start">
-                <Label
-                Text="Cost per Diner"
-                FontSize="20"
-                WidthRequest="150"
-            />
-                <Label
-                x:Name="perDinerAmount"
-                Text="$0.00"
-                FontSize="20"
-                WidthRequest="100"
-            />
-            </HorizontalStackLayout>
-
-            <VerticalStackLayout>
-                <HorizontalStackLayout HorizontalOptions="Start">
+                <HorizontalStackLayout>
+                    <Label
+                         Text="Cost per Diner"
+                         FontSize="20"
+                         WidthRequest="150"
+                     />
+                    <Label
+                         x:Name="perDinerAmount"
+                         Text="$0.00"
+                         FontSize="20"
+                     />
+                </HorizontalStackLayout>
+                
+                <HorizontalStackLayout>
                     <Label
                 Text="Diners"
                 FontSize="20"
@@ -176,21 +173,24 @@
                 />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
-
-            <HorizontalStackLayout>
-                <Slider
-                x:Name="percentageSlider"
-                Minimum="0"                    
-                Maximum="100"
-                WidthRequest="250"
-                ValueChanged="SliderValueChanged"
-            />
-                <Label WidthRequest="15"/>
-                <Label
-                x:Name="percentageLabel"
-                Text="0%"                    
-            />
-            </HorizontalStackLayout>
+            
+            <VerticalStackLayout HorizontalOptions="Center">
+                <HorizontalStackLayout>
+                    <Slider
+                        x:Name="percentageSlider"
+                        Minimum="0"                    
+                        Maximum="100"
+                        WidthRequest="250"
+                        ValueChanged="SliderValueChanged"
+                    />
+                    <Label WidthRequest="15"/>
+                    <Label
+                        x:Name="percentageLabel"
+                        Text="0%"                    
+                    />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            
         </VerticalStackLayout>
     </ScrollView>
 
