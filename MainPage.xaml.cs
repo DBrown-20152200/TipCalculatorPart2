@@ -36,6 +36,7 @@ namespace TipCalculatorPart2
     }
     public partial class MainPage : ContentPage
     {
+        public PreferenceOptions preferencesPage = new PreferenceOptions();
         IAudioPlayer tapSound;
         public TipCalculatorDataModel data = new TipCalculatorDataModel();
 
@@ -180,6 +181,11 @@ namespace TipCalculatorPart2
         {
             billAmount.Text = Preferences.Get("billAmount.Text", "$0.00");
             percentageSlider.Value = Preferences.Get("percentageSlider.Value", 0.00);
+        }
+
+        private void moveToPreferences_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(preferencesPage);
         }
     }
 }

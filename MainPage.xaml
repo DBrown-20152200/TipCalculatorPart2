@@ -193,7 +193,12 @@
                     />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
-            
+
+            <Button 
+                x:Name="moveToPreferences" 
+                Text="Preferences" 
+                Clicked="moveToPreferences_Clicked"/>
+
         </VerticalStackLayout>
     </ScrollView>
 

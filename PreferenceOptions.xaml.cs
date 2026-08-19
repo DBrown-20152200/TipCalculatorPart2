@@ -6,4 +6,9 @@ public partial class PreferenceOptions : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void soundToggleSwitch_Toggled(object sender, ToggledEventArgs e)
+    {
+
+    }
 }
