@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Plugin.Maui.Audio;
 
 namespace TipCalculatorPart2
 {
@@ -36,20 +36,31 @@ namespace TipCalculatorPart2
     }
     public partial class MainPage : ContentPage
     {
+        IAudioPlayer tapSound;
         public TipCalculatorDataModel data = new TipCalculatorDataModel();
         public bool hasStarted = false;
 
         public MainPage()
         {
             InitializeComponent();
+            InitialiseSound();
 
             TipCalculatorDataModel data = new TipCalculatorDataModel();
         }
 
+        public async void InitialiseSound()
+        {
+            Stream soundFile = await FileSystem.OpenAppPackageFileAsync("tap.wav");
+            tapSound = AudioManager.Current.CreatePlayer(soundFile);
+        }
+
         public void ButtonClicked(object sender, EventArgs e)
         {
+            tapSound.Play();
+
             var buttonPressed = (Button)sender;
             string buttonText = buttonPressed.Text;
+
 
             if (data.isDecimal == false)
             {
@@ -75,6 +86,8 @@ namespace TipCalculatorPart2
 
         public void ClearButtonClicked(object sender, EventArgs e)
         {
+            tapSound.Play();
+
             if (hasStarted == true)
             {
                 data.billDisplay = "$";
@@ -117,6 +130,8 @@ namespace TipCalculatorPart2
         }
         public void Point_Clicked(object sender, EventArgs e)
         {
+            tapSound.Play();
+
             var buttonPressed = (Button)sender;
             string buttonText = buttonPressed.Text;
 
@@ -131,6 +146,8 @@ namespace TipCalculatorPart2
 
         public void DinerStepperAmount_ValueChanged(object sender, ValueChangedEventArgs e)
         {
+            tapSound.Play();
+
             var stepperPressed = (Stepper)sender;
             int stepperValue = (int)stepperPressed.Value;
 
