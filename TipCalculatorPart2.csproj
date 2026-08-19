@@ -71,4 +71,16 @@
 		<PackageReference Include="Plugin.Maui.Audio" Version="4.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="PreferenceOptions.xaml.cs">
+	    <DependentUpon>PreferenceOptions.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="PreferenceOptions.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TipCalculatorPart2.MainPage"
-             Title="TipCalculator Part2">
+             Title="TipCalculator Part2"
+             Appearing="ContentPage_Appearing"
+             Disappearing="ContentPage_Disappearing"
+             >
 
     <ScrollView HeightRequest="550" WidthRequest="350">
         <VerticalStackLayout HorizontalOptions="Center">
@@ -181,7 +184,7 @@
                         Minimum="0"                    
                         Maximum="100"
                         WidthRequest="250"
-                        ValueChanged="SliderValueChanged"
+                        ValueChanged="SliderValueChanged"                        
                     />
                     <Label WidthRequest="15"/>
                     <Label

@@ -38,7 +38,6 @@ namespace TipCalculatorPart2
     {
         IAudioPlayer tapSound;
         public TipCalculatorDataModel data = new TipCalculatorDataModel();
-        public bool hasStarted = false;
 
         public MainPage()
         {
@@ -78,17 +77,27 @@ namespace TipCalculatorPart2
                 }
             }
 
-
-            hasStarted = true;
+            
 
             Debug.WriteLine(buttonText);
+        }
+        public bool HasStarted()
+        {
+            if (billAmount.Text != "$0.00" && percentageSlider.Value != 0.00)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void ClearButtonClicked(object sender, EventArgs e)
         {
             tapSound.Play();
 
-            if (hasStarted == true)
+            if ( HasStarted())
             {
                 data.billDisplay = "$";
                 billAmount.Text = "$0.00";
@@ -97,8 +106,7 @@ namespace TipCalculatorPart2
                 data.decimalPlaces = 0;
                 dinersAmount.Text = "1";
                 perDinerAmount.Text = "$0.00";
-
-                hasStarted = false;
+                percentageSlider.Value = 0.00;
                 data.isDecimal = false;
                 data.totalCalculated = false;
 
@@ -117,7 +125,7 @@ namespace TipCalculatorPart2
 
             tipAmount.Text = "$" + tip.ToString($"F2");
 
-            if (hasStarted == true)
+            if (HasStarted())
             {
                 totalAmount.Text = "$" + data.TotalAmount(bill, tip).ToString($"F2");
                 data.totalCalculated = true;
@@ -135,7 +143,7 @@ namespace TipCalculatorPart2
             var buttonPressed = (Button)sender;
             string buttonText = buttonPressed.Text;
 
-            if (hasStarted == true && data.isDecimal == false)
+            if (HasStarted() == true && data.isDecimal == false)
             {
                 billAmount.Text = data.billDisplay + buttonText;
                 data.billDisplay = billAmount.Text;
@@ -160,6 +168,18 @@ namespace TipCalculatorPart2
                 perDinerAmount.Text = "$" +
                     data.CostPerDiner(total, stepperValue).ToString($"F2");
             }
+        }
+
+        private void ContentPage_Disappearing(object sender, EventArgs e)
+        {
+            Preferences.Default.Set("billAmount.Text", billAmount.Text);
+            Preferences.Default.Set("percentageSlider.Value", percentageSlider.Value);
+        }
+
+        private void ContentPage_Appearing(object sender, EventArgs e)
+        {
+            billAmount.Text = Preferences.Get("billAmount.Text", "$0.00");
+            percentageSlider.Value = Preferences.Get("percentageSlider.Value", 0.00);
         }
     }
 }
