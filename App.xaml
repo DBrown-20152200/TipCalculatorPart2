@@ -9,6 +9,20 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="exoPage" TargetType="ScrollView">
+                <Setter Property="BackgroundColor" Value="Black"/>
+            </Style> 
+            
+            <Style x:Key="exoClearButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Goldenrod"/>
+            </Style>
+            
+            <Style x:Key="exoButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="DimGrey"/>
+                <Setter Property="TextColor" Value="Gold"/>
+            </Style> 
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

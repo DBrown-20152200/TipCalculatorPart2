@@ -7,7 +7,7 @@
              Disappearing="ContentPage_Disappearing"
              >
 
-    <ScrollView HeightRequest="550" WidthRequest="350">
+    <ScrollView HeightRequest="550" WidthRequest="350" x:Name="pageBackground">
         <VerticalStackLayout HorizontalOptions="Center">
             <VerticalStackLayout HorizontalOptions="Center">
                 <HorizontalStackLayout>

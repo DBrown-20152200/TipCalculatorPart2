@@ -46,10 +46,20 @@ namespace TipCalculatorPart2
         }
         public void PlaySound()
         {
-            if (Preferences.Get("soundToggleSwitch.IsToggled", true) == true)
+            if (Preferences.Get("SoundToggle", true) == true)
             {
                 tapSound.Play();
             }
+        }
+    }
+
+    public class ThemeData
+    {
+        public Style ChangeTheme(string newStyle)
+        {
+            var appResources = Application.Current.Resources;
+            Style element = (Style)appResources[newStyle];
+            return element;
         }
     }
 
@@ -58,6 +68,8 @@ namespace TipCalculatorPart2
         public PreferenceOptions preferencesPage = new PreferenceOptions();
         public TipCalculatorDataModel data = new TipCalculatorDataModel();
         public SoundData soundData = new SoundData();
+        public ThemeData themeData = new ThemeData();
+
 
         public MainPage()
         {
@@ -65,9 +77,7 @@ namespace TipCalculatorPart2
             soundData.InitialiseSound();
 
             TipCalculatorDataModel data = new TipCalculatorDataModel();
-        }
-
-
+        }        
 
         public void ButtonClicked(object sender, EventArgs e)
         {
@@ -111,7 +121,7 @@ namespace TipCalculatorPart2
 
         public void ClearButtonClicked(object sender, EventArgs e)
         {
-                        soundData.PlaySound();
+            soundData.PlaySound();
 
             if ( HasStarted())
             {
@@ -194,6 +204,24 @@ namespace TipCalculatorPart2
 
         private void ContentPage_Appearing(object sender, EventArgs e)
         {
+            Button button = new Button();
+
+            pageBackground.Style = themeData.ChangeTheme("exoPage");
+            buttonClear.Style = themeData.ChangeTheme("exoClearButton");
+
+            
+
+            //buttonZero.Style = themeData.ChangeTheme("exoButton");
+            //buttonOne.Style = themeData.ChangeTheme("exoButton");
+            //buttonTwo.Style = themeData.ChangeTheme("exoButton");
+            //buttonThree.Style = themeData.ChangeTheme("exoButton");
+            //buttonFour.Style = themeData.ChangeTheme("exoButton");
+            //buttonFive.Style = themeData.ChangeTheme("exoButton");
+            //buttonSix.Style = themeData.ChangeTheme("exoButton");
+            //buttonSeven.Style = themeData.ChangeTheme("exoButton");
+            //buttonEight.Style = themeData.ChangeTheme("exoButton");
+            //buttonNine.Style = themeData.ChangeTheme("exoButton");
+
             billAmount.Text = Preferences.Get("billAmount.Text", "$0.00");
             percentageSlider.Value = Preferences.Get("percentageSlider.Value", 0.00);
         }

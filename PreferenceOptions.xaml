@@ -8,7 +8,7 @@
              Appearing="ContentPage_Appearing"
              Disappearing="ContentPage_Disappearing">
 
-    <ScrollView HeightRequest="550" WidthRequest="350">
+    <ScrollView HeightRequest="550" WidthRequest="350" x:Name="pageBackground">
         <VerticalStackLayout HorizontalOptions="Center">
             
             <Label 
@@ -24,7 +24,6 @@
                     VerticalOptions="Center"/>
                 <Switch
                     x:Name="soundToggleSwitch"
-                    IsToggled="True"
                     Toggled="soundToggleSwitch_Toggled"                                                            
                     MinimumWidthRequest="0"
                     HorizontalOptions="End"/>
@@ -47,6 +46,9 @@
                 Text="Style Options"
                 HorizontalOptions="Center"
                 FontSize="Small"/>
+
+            <HorizontalStackLayout>
+            </HorizontalStackLayout>
 
             <Button
                 x:Name="returnButton"

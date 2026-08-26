@@ -12,13 +12,15 @@ public partial class PreferenceOptions : ContentPage
 
     private void soundToggleSwitch_Toggled(object sender, ToggledEventArgs e)
     {
-        Preferences.Set("soundToggleSwitch.IsToggled", soundToggleSwitch.IsToggled);
+        Preferences.Set("SoundToggle", soundToggleSwitch.IsToggled);
         soundData.PlaySound();
     }
 
     private void ContentPage_Appearing(object sender, EventArgs e)
     {
-        soundToggleSwitch.IsToggled = Preferences.Get("soundToggleSwitch.IsToggled", true);
+        soundToggleSwitch.IsToggled = Preferences.Get("SoundToggle", true);
+        darkModeToggle.IsToggled = Preferences.Get("DarkMode", true);
+        
     }
 
     private void ContentPage_Disappearing(object sender, EventArgs e)
@@ -35,5 +37,6 @@ public partial class PreferenceOptions : ContentPage
     private void darkModeToggle_Toggled(object sender, ToggledEventArgs e)
     {
         soundData.PlaySound();
+        Preferences.Set("DarkMode", darkModeToggle.IsToggled);
     }
 }
