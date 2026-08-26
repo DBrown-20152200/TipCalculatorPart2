@@ -5,9 +5,10 @@
              Title="TipCalculator Part2"
              Appearing="ContentPage_Appearing"
              Disappearing="ContentPage_Disappearing"
+             Style="{DynamicResource PageBackgroundColour}"
              >
 
-    <ScrollView HeightRequest="550" WidthRequest="350" x:Name="pageBackground">
+    <ScrollView HeightRequest="550" WidthRequest="350">
         <VerticalStackLayout HorizontalOptions="Center">
             <VerticalStackLayout HorizontalOptions="Center">
                 <HorizontalStackLayout>
@@ -15,12 +16,15 @@
                          Text="Bill"
                          FontSize="20"
                          WidthRequest="100"
+                         Style="{DynamicResource LabelColour}"
                      />
                     <Label
                          x:Name="billAmount"
                          Text="$0.00"
                          FontSize="20"
                          WidthRequest="100"
+                         Style="{DynamicResource LabelColour}"
+                        
                      />
                 </HorizontalStackLayout>
 
@@ -29,12 +33,14 @@
                          Text="Tip"
                          FontSize="20"
                          WidthRequest="100"
-                     />
+                         Style="{DynamicResource LabelColour}"       
+                    />
                     <Label
                          x:Name="tipAmount"
                          Text="$0.00"
                          FontSize="20"
                          WidthRequest="100"
+                         Style="{DynamicResource LabelColour}"                        
                      />
                 </HorizontalStackLayout>
 
@@ -43,12 +49,14 @@
                          Text="Total"
                          FontSize="20"
                          WidthRequest="100"
+                         Style="{DynamicResource LabelColour}"                        
                      />
                     <Label
                          x:Name="totalAmount"
                          Text="$0.00"
                          FontSize="20"
                          WidthRequest="100"
+                         Style="{DynamicResource LabelColour}"                        
                      />
                 </HorizontalStackLayout>
 
@@ -57,36 +65,40 @@
                          Text="Cost per Diner"
                          FontSize="20"
                          WidthRequest="150"
+                         Style="{DynamicResource LabelColour}"                        
                      />
                     <Label
                          x:Name="perDinerAmount"
                          Text="$0.00"
                          FontSize="20"
-                     />
+                         Style="{DynamicResource LabelColour}"                        
+                    />
                 </HorizontalStackLayout>
                 
                 <HorizontalStackLayout>
                     <Label
-                Text="Diners"
-                FontSize="20"
-                WidthRequest="100"
-                />
+                        Text="Diners"
+                        FontSize="20"
+                        WidthRequest="100"
+                         Style="{DynamicResource LabelColour}"                        
+                    />
 
                     <Label
-                x:Name="dinersAmount"
-                Text="1"
-                FontSize="20"
-                WidthRequest="85"
-                />
+                        x:Name="dinersAmount"
+                        Text="1"
+                        FontSize="20"
+                        WidthRequest="85"
+                        Style="{DynamicResource LabelColour}"                        
+                    />
 
                     <Stepper
-                x:Name="dinerStepperAmount"
-                Scale="0.75"
-                Minimum="1"
-                Value="1"
-                Increment="1"
-                ValueChanged="DinerStepperAmount_ValueChanged"
-                />
+                        x:Name="dinerStepperAmount"
+                        Scale="0.75"
+                        Minimum="1"
+                        Value="1"
+                        Increment="1"
+                        ValueChanged="DinerStepperAmount_ValueChanged"
+                    />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 
@@ -98,18 +110,21 @@
                     Text="7"
                     FontSize="20"
                     Clicked="ButtonClicked"
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonEight"
                     Text="8"
                     FontSize="20"
-                    Clicked="ButtonClicked"                       
+                    Clicked="ButtonClicked"
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonNine"
                     Text="9"
                     FontSize="20"
-                    Clicked="ButtonClicked"                        
+                    Clicked="ButtonClicked"
+                    Style="{DynamicResource Button}"
                 />
                 </HorizontalStackLayout>
 
@@ -118,19 +133,22 @@
                     x:Name="buttonFour"
                     Text="4"
                     FontSize="20"
-                    Clicked="ButtonClicked"                        
+                    Clicked="ButtonClicked"
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonFive"
                     Text="5"
                     FontSize="20"
-                    Clicked="ButtonClicked" 
+                    Clicked="ButtonClicked"
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonSix"
                     Text="6"
                     FontSize="20"
                     Clicked="ButtonClicked" 
+                    Style="{DynamicResource Button}"
                 />
                 </HorizontalStackLayout>
 
@@ -139,19 +157,22 @@
                     x:Name="buttonOne"
                     Text="1"
                     FontSize="20"
-                    Clicked="ButtonClicked" 
+                    Clicked="ButtonClicked"
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonTwo"
                     Text="2"
                     FontSize="20"
                     Clicked="ButtonClicked" 
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonThree"
                     Text="3"
                     FontSize="20"
                     Clicked="ButtonClicked" 
+                    Style="{DynamicResource Button}"
                 />
                 </HorizontalStackLayout>
 
@@ -161,18 +182,21 @@
                     Text="0"
                     FontSize="20"
                     Clicked="ButtonClicked" 
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonDecimal"
                     Text="."
                     FontSize="20"
                     Clicked="Point_Clicked"
+                    Style="{DynamicResource Button}"
                 />
                     <Button
                     x:Name="buttonClear"
                     Text="C"
                     FontSize="20"
-                    Clicked="ClearButtonClicked" 
+                    Clicked="ClearButtonClicked"
+                    Style="{DynamicResource ClearButton}"
                 />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -189,7 +213,8 @@
                     <Label WidthRequest="15"/>
                     <Label
                         x:Name="percentageLabel"
-                        Text="0%"                    
+                        Text="0%" 
+                        Style="{DynamicResource LabelColour}"
                     />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -197,7 +222,8 @@
             <Button 
                 x:Name="moveToPreferences" 
                 Text="Preferences" 
-                Clicked="moveToPreferences_Clicked"/>
+                Clicked="moveToPreferences_Clicked"
+                Style="{DynamicResource Button}"/>
 
         </VerticalStackLayout>
     </ScrollView>

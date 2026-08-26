@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Plugin.Maui.Audio;
+using TipCalculatorPart2.Themes;
 
 namespace TipCalculatorPart2
 {
@@ -55,11 +56,14 @@ namespace TipCalculatorPart2
 
     public class ThemeData
     {
-        public Style ChangeTheme(string newStyle)
+        public void ChangeTheme(ResourceDictionary newTheme)
         {
-            var appResources = Application.Current.Resources;
-            Style element = (Style)appResources[newStyle];
-            return element;
+            ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+            if (mergedDictionaries != null)
+            {
+                mergedDictionaries.Clear();
+                mergedDictionaries.Add(newTheme);
+            }
         }
     }
 
@@ -204,23 +208,7 @@ namespace TipCalculatorPart2
 
         private void ContentPage_Appearing(object sender, EventArgs e)
         {
-            Button button = new Button();
-
-            pageBackground.Style = themeData.ChangeTheme("exoPage");
-            buttonClear.Style = themeData.ChangeTheme("exoClearButton");
-
-            
-
-            //buttonZero.Style = themeData.ChangeTheme("exoButton");
-            //buttonOne.Style = themeData.ChangeTheme("exoButton");
-            //buttonTwo.Style = themeData.ChangeTheme("exoButton");
-            //buttonThree.Style = themeData.ChangeTheme("exoButton");
-            //buttonFour.Style = themeData.ChangeTheme("exoButton");
-            //buttonFive.Style = themeData.ChangeTheme("exoButton");
-            //buttonSix.Style = themeData.ChangeTheme("exoButton");
-            //buttonSeven.Style = themeData.ChangeTheme("exoButton");
-            //buttonEight.Style = themeData.ChangeTheme("exoButton");
-            //buttonNine.Style = themeData.ChangeTheme("exoButton");
+            themeData.ChangeTheme(new ExoDarkTheme());
 
             billAmount.Text = Preferences.Get("billAmount.Text", "$0.00");
             percentageSlider.Value = Preferences.Get("percentageSlider.Value", 0.00);
