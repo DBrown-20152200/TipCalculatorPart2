@@ -4,7 +4,9 @@
              x:Class="TipCalculatorPart2.PreferenceOptions"
              Title="Preferences"
              HeightRequest="550" 
-             WidthRequest="350">
+             WidthRequest="350"
+             Appearing="ContentPage_Appearing"
+             Disappearing="ContentPage_Disappearing">
 
     <ScrollView HeightRequest="550" WidthRequest="350">
         <VerticalStackLayout HorizontalOptions="Center">
@@ -34,7 +36,8 @@
                     x:Name="darkModeToggle"
                     Margin="0,-10"
                     MinimumWidthRequest="0"
-                    WidthRequest="85"/>
+                    WidthRequest="85"
+                    Toggled="darkModeToggle_Toggled"/>
                 <Label Text="Dark"/>
             </HorizontalStackLayout>
             
@@ -44,6 +47,11 @@
                 Text="Style Options"
                 HorizontalOptions="Center"
                 FontSize="Small"/>
+
+            <Button
+                x:Name="returnButton"
+                Text="Return"
+                Clicked="returnButton_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

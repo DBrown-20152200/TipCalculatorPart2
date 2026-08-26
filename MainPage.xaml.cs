@@ -34,29 +34,44 @@ namespace TipCalculatorPart2
             return costPerDiner;
         }
     }
-    public partial class MainPage : ContentPage
+
+    public class SoundData
     {
-        public PreferenceOptions preferencesPage = new PreferenceOptions();
-        IAudioPlayer tapSound;
-        public TipCalculatorDataModel data = new TipCalculatorDataModel();
-
-        public MainPage()
-        {
-            InitializeComponent();
-            InitialiseSound();
-
-            TipCalculatorDataModel data = new TipCalculatorDataModel();
-        }
+        public IAudioPlayer tapSound;
 
         public async void InitialiseSound()
         {
             Stream soundFile = await FileSystem.OpenAppPackageFileAsync("tap.wav");
             tapSound = AudioManager.Current.CreatePlayer(soundFile);
         }
+        public void PlaySound()
+        {
+            if (Preferences.Get("soundToggleSwitch.IsToggled", true) == true)
+            {
+                tapSound.Play();
+            }
+        }
+    }
+
+    public partial class MainPage : ContentPage
+    {
+        public PreferenceOptions preferencesPage = new PreferenceOptions();
+        public TipCalculatorDataModel data = new TipCalculatorDataModel();
+        public SoundData soundData = new SoundData();
+
+        public MainPage()
+        {
+            InitializeComponent();
+            soundData.InitialiseSound();
+
+            TipCalculatorDataModel data = new TipCalculatorDataModel();
+        }
+
+
 
         public void ButtonClicked(object sender, EventArgs e)
         {
-            tapSound.Play();
+            soundData.PlaySound();
 
             var buttonPressed = (Button)sender;
             string buttonText = buttonPressed.Text;
@@ -84,7 +99,7 @@ namespace TipCalculatorPart2
         }
         public bool HasStarted()
         {
-            if (billAmount.Text != "$0.00" && percentageSlider.Value != 0.00)
+            if (billAmount.Text != "$0.00" || percentageSlider.Value != 0.00)
             {
                 return true;
             }
@@ -96,7 +111,7 @@ namespace TipCalculatorPart2
 
         public void ClearButtonClicked(object sender, EventArgs e)
         {
-            tapSound.Play();
+                        soundData.PlaySound();
 
             if ( HasStarted())
             {
@@ -139,7 +154,7 @@ namespace TipCalculatorPart2
         }
         public void Point_Clicked(object sender, EventArgs e)
         {
-            tapSound.Play();
+            soundData.PlaySound();
 
             var buttonPressed = (Button)sender;
             string buttonText = buttonPressed.Text;
@@ -155,7 +170,7 @@ namespace TipCalculatorPart2
 
         public void DinerStepperAmount_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            tapSound.Play();
+            soundData.PlaySound();
 
             var stepperPressed = (Stepper)sender;
             int stepperValue = (int)stepperPressed.Value;
@@ -185,6 +200,7 @@ namespace TipCalculatorPart2
 
         private void moveToPreferences_Clicked(object sender, EventArgs e)
         {
+            soundData.PlaySound();
             Navigation.PushModalAsync(preferencesPage);
         }
     }
