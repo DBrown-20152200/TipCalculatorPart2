@@ -34,11 +34,8 @@ public partial class PreferenceOptions : ContentPage
     private void darkModeToggle_Toggled(object sender, ToggledEventArgs e)
     {
         soundData.PlaySound();
-        Preferences.Set("DarkMode", darkModeToggle.IsToggled);
-        if (Preferences.Get("Theme", "Exo") == "Exo")
-        {
-            themes.ChangeTheme();
-        }
+        Preferences.Set("DarkMode", darkModeToggle.IsToggled);                
+        themes.ChangeTheme();        
     }
 
     private void exoButton_Clicked(object sender, EventArgs e)
@@ -53,5 +50,19 @@ public partial class PreferenceOptions : ContentPage
         }
 
         Preferences.Set("Theme", "Exo");
+    }
+
+    private void earthButton_Clicked(object sender, EventArgs e)
+    {
+        if (Preferences.Get("DarkMode", true) == true)
+        {
+            themes.ChangeTheme();
+        }
+        else
+        {
+            themes.ChangeTheme();
+        }
+
+        Preferences.Set("Theme", "Earth");
     }
 }

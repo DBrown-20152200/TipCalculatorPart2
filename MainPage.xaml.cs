@@ -72,6 +72,17 @@ namespace TipCalculatorPart2
                     newTheme = new ExoLightTheme();
                 }
             }
+            else if(newThemeName == "Earth")
+            {
+                if(darkMode == true)
+                {
+                    newTheme = new EarthDark();
+                }
+                else
+                {
+                    newTheme = new EarthLight();
+                }
+            }
 
             ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
             if (mergedDictionaries != null)

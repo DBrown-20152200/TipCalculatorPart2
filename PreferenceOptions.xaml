@@ -44,19 +44,35 @@
                 <Label Text="Dark"
                        Style="{DynamicResource LabelColour}"/>
             </HorizontalStackLayout>
-            
-            <Label/>
 
+            <Label/>
             <Label
                 Text="Style Options"
                 HorizontalOptions="Center"
                 FontSize="Small"
                 Style="{DynamicResource LabelColour}"/>
 
+            <Label/>
+
+            <HorizontalStackLayout>
+                <Label Text="Font Size:"
+                       Style="{DynamicResource LabelColour}"/>
+                <Label/>
+                <Stepper x:Name="FontSizeStepper" Value="20"
+                         Style="{DynamicResource StepperStyle}"/>
+            </HorizontalStackLayout>
+            
+            <Label Text=" "/>
+
             <HorizontalStackLayout>
                 <Button x:Name="exoButton"
                         Text="Exo Theme"
                         Clicked="exoButton_Clicked"
+                        Style="{DynamicResource Button}"/>
+
+                <Button x:Name="earthButton"
+                        Text="Earth Theme"
+                        Clicked="earthButton_Clicked"
                         Style="{DynamicResource Button}"/>
             </HorizontalStackLayout>
 

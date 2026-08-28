@@ -5,6 +5,6 @@
     <Color x:Key="PageBackgroundColour">WhiteSmoke</Color>
     <Color x:Key="PrimaryColour">LightGrey</Color>
     <Color x:Key="SecondaryColour">DeepSkyBlue</Color>
-    <Color x:Key="TertiaryColour">LightSlateGrey</Color>
+    <Color x:Key="TertiaryColour">DeepSkyBlue</Color>
     <Color x:Key="PrimaryTextColour">DeepSkyBlue</Color>
 </ResourceDictionary>

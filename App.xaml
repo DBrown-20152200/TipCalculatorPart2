@@ -13,29 +13,38 @@
             <Style x:Key="BackgroundStyle" TargetType="ScrollView">
                 <Setter Property="BackgroundColor"
                         Value="{DynamicResource PageBackgroundColour}"/>
-            </Style> 
-            
+            </Style>
+
             <Style x:Key="ClearButton" TargetType="Button">
                 <Setter Property="BackgroundColor" 
                         Value="{DynamicResource TertiaryColour}"/>
+                <Setter Property="FontSize"
+                        Value="{DynamicResource FontSize}"/>
             </Style>
-            
+
             <Style x:Key="Button" TargetType="Button">
                 <Setter Property="BackgroundColor" 
                         Value="{DynamicResource PrimaryColour}"/>
                 <Setter Property="TextColor" 
                         Value="{DynamicResource PrimaryTextColour}"/>
+                <Setter Property="FontSize"
+                        Value="{DynamicResource FontSize}"/>
             </Style>
 
             <Style x:Key="LabelColour" TargetType="Label">
                 <Setter Property="TextColor" 
                         Value="{DynamicResource PrimaryTextColour}"/>
+                <Setter Property="FontSize"
+                        Value="{DynamicResource FontSize}"/>
+            </Style>
+
+            <Style x:Key="StepperStyle" TargetType="Stepper">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColour}"/>
             </Style>
 
             <Style x:Key="SliderColour" TargetType="Slider">
                 <Setter Property="ThumbColor" Value="{DynamicResource PrimaryTextColour}"/>
             </Style>
-            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
