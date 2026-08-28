@@ -31,6 +31,10 @@
                 <Setter Property="TextColor" 
                         Value="{DynamicResource PrimaryTextColour}"/>
             </Style>
+
+            <Style x:Key="SliderColour" TargetType="Slider">
+                <Setter Property="ThumbColor" Value="{DynamicResource PrimaryTextColour}"/>
+            </Style>
             
         </ResourceDictionary>
     </Application.Resources>

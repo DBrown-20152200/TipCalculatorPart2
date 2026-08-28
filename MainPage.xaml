@@ -8,7 +8,7 @@
              Style="{DynamicResource PageBackgroundColour}"
              >
 
-    <ScrollView HeightRequest="550" WidthRequest="350">
+    <ScrollView HeightRequest="550" WidthRequest="350" Style="{DynamicResource BackgroundStyle}">
         <VerticalStackLayout HorizontalOptions="Center">
             <VerticalStackLayout HorizontalOptions="Center">
                 <HorizontalStackLayout>
@@ -208,7 +208,8 @@
                         Minimum="0"                    
                         Maximum="100"
                         WidthRequest="250"
-                        ValueChanged="SliderValueChanged"                        
+                        ValueChanged="SliderValueChanged" 
+                        Style="{DynamicResource SliderColour}"
                     />
                     <Label WidthRequest="15"/>
                     <Label

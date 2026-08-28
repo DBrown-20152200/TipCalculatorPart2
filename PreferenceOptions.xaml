@@ -6,22 +6,25 @@
              HeightRequest="550" 
              WidthRequest="350"
              Appearing="ContentPage_Appearing"
-             Disappearing="ContentPage_Disappearing">
+             Style="{DynamicResource PageBackgroundColour}">
 
-    <ScrollView HeightRequest="550" WidthRequest="350" x:Name="pageBackground">
+    <ScrollView HeightRequest="550" WidthRequest="350" Style="{DynamicResource BackgroundStyle}">
         <VerticalStackLayout HorizontalOptions="Center">
             
             <Label 
                 Text="Preference Settings"
                 HorizontalOptions="Center"
-                FontSize="Medium"/>
+                FontSize="Medium"
+                Style="{DynamicResource LabelColour}"
+                />
             
             <HorizontalStackLayout HeightRequest="50">
                 <Label 
                     Text="Toggle Sound" 
                     HorizontalOptions="Start"
                     WidthRequest="150"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    Style="{DynamicResource LabelColour}"/>
                 <Switch
                     x:Name="soundToggleSwitch"
                     Toggled="soundToggleSwitch_Toggled"                                                            
@@ -30,14 +33,16 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout>
-                <Label Text="Light" WidthRequest="85"/>
+                <Label Text="Light" WidthRequest="85"
+                       Style="{DynamicResource LabelColour}"/>
                 <Switch 
                     x:Name="darkModeToggle"
                     Margin="0,-10"
                     MinimumWidthRequest="0"
                     WidthRequest="85"
                     Toggled="darkModeToggle_Toggled"/>
-                <Label Text="Dark"/>
+                <Label Text="Dark"
+                       Style="{DynamicResource LabelColour}"/>
             </HorizontalStackLayout>
             
             <Label/>
@@ -45,15 +50,21 @@
             <Label
                 Text="Style Options"
                 HorizontalOptions="Center"
-                FontSize="Small"/>
+                FontSize="Small"
+                Style="{DynamicResource LabelColour}"/>
 
             <HorizontalStackLayout>
+                <Button x:Name="exoButton"
+                        Text="Exo Theme"
+                        Clicked="exoButton_Clicked"
+                        Style="{DynamicResource Button}"/>
             </HorizontalStackLayout>
 
             <Button
                 x:Name="returnButton"
                 Text="Return"
-                Clicked="returnButton_Clicked"/>
+                Clicked="returnButton_Clicked"
+                Style="{DynamicResource Button}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

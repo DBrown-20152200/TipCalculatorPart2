@@ -56,8 +56,23 @@ namespace TipCalculatorPart2
 
     public class ThemeData
     {
-        public void ChangeTheme(ResourceDictionary newTheme)
+        public void ChangeTheme()
         {
+            ResourceDictionary newTheme = new ResourceDictionary();
+            string newThemeName = Preferences.Get("Theme", "Exo");
+            bool darkMode = Preferences.Get("DarkMode", true);
+            if(newThemeName == "Exo")
+            {
+                if(darkMode == true)
+                {
+                    newTheme = new ExoDarkTheme();
+                }
+                else
+                {
+                    newTheme = new ExoLightTheme();
+                }
+            }
+
             ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
             if (mergedDictionaries != null)
             {
@@ -208,7 +223,7 @@ namespace TipCalculatorPart2
 
         private void ContentPage_Appearing(object sender, EventArgs e)
         {
-            themeData.ChangeTheme(new ExoDarkTheme());
+            themeData.ChangeTheme();
 
             billAmount.Text = Preferences.Get("billAmount.Text", "$0.00");
             percentageSlider.Value = Preferences.Get("percentageSlider.Value", 0.00);

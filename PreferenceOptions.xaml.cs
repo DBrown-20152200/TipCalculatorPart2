@@ -1,8 +1,11 @@
+using TipCalculatorPart2.Themes;
+
 namespace TipCalculatorPart2;
 
 public partial class PreferenceOptions : ContentPage
 {
     SoundData soundData = new SoundData();
+    ThemeData themes = new ThemeData();
 
 	public PreferenceOptions()
 	{
@@ -20,12 +23,6 @@ public partial class PreferenceOptions : ContentPage
     {
         soundToggleSwitch.IsToggled = Preferences.Get("SoundToggle", true);
         darkModeToggle.IsToggled = Preferences.Get("DarkMode", true);
-        
-    }
-
-    private void ContentPage_Disappearing(object sender, EventArgs e)
-    {
-        
     }
 
     private void returnButton_Clicked(object sender, EventArgs e)
@@ -38,5 +35,23 @@ public partial class PreferenceOptions : ContentPage
     {
         soundData.PlaySound();
         Preferences.Set("DarkMode", darkModeToggle.IsToggled);
+        if (Preferences.Get("Theme", "Exo") == "Exo")
+        {
+            themes.ChangeTheme();
+        }
+    }
+
+    private void exoButton_Clicked(object sender, EventArgs e)
+    {
+        if (Preferences.Get("DarkMode", true) == true)
+        {
+            themes.ChangeTheme();
+        }
+        else
+        {
+            themes.ChangeTheme();
+        }
+
+        Preferences.Set("Theme", "Exo");
     }
 }
