@@ -66,8 +66,7 @@
                 <Stepper x:Name="FontSizeStepper"
                          Style="{DynamicResource StepperStyle}"
                          HorizontalOptions="End"
-                         ValueChanged="FontSizeStepper_ValueChanged"
-                         Minimum="12"   
+                         ValueChanged="FontSizeStepper_ValueChanged"  
                          Maximum="23"/>
             </HorizontalStackLayout>
             

@@ -238,7 +238,7 @@ namespace TipCalculatorPart2
 
             billAmount.Text = Preferences.Get("billAmount.Text", "$0.00");
             percentageSlider.Value = Preferences.Get("percentageSlider.Value", 0.00);
-            Application.Current.Resources["FontSize"] = Preferences.Get("FontSize", 20);
+            Application.Current.Resources["FontSize"] = Preferences.Get("FontSize", 18.00);
             
         }
 
