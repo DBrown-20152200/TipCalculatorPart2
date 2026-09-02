@@ -10,12 +10,11 @@
 
     <ScrollView HeightRequest="550" WidthRequest="350" Style="{DynamicResource BackgroundStyle}">
         <VerticalStackLayout HorizontalOptions="Center">
-            
             <Label 
                 Text="Preference Settings"
                 HorizontalOptions="Center"
-                FontSize="Medium"
                 Style="{DynamicResource LabelColour}"
+                FontSize="{DynamicResource FontSize}"
                 />
             
             <HorizontalStackLayout HeightRequest="50">
@@ -24,7 +23,8 @@
                     HorizontalOptions="Start"
                     WidthRequest="150"
                     VerticalOptions="Center"
-                    Style="{DynamicResource LabelColour}"/>
+                    Style="{DynamicResource LabelColour}"
+                    FontSize="{DynamicResource FontSize}"/>
                 <Switch
                     x:Name="soundToggleSwitch"
                     Toggled="soundToggleSwitch_Toggled"                                                            
@@ -34,7 +34,8 @@
 
             <HorizontalStackLayout>
                 <Label Text="Light" WidthRequest="85"
-                       Style="{DynamicResource LabelColour}"/>
+                       Style="{DynamicResource LabelColour}"
+                       FontSize="{DynamicResource FontSize}"/>
                 <Switch 
                     x:Name="darkModeToggle"
                     Margin="0,-10"
@@ -42,45 +43,56 @@
                     WidthRequest="85"
                     Toggled="darkModeToggle_Toggled"/>
                 <Label Text="Dark"
-                       Style="{DynamicResource LabelColour}"/>
+                       Style="{DynamicResource LabelColour}"
+                       FontSize="{DynamicResource FontSize}"/>
             </HorizontalStackLayout>
 
             <Label/>
             <Label
                 Text="Style Options"
                 HorizontalOptions="Center"
-                FontSize="Small"
+                FontSize="{DynamicResource FontSize}"
                 Style="{DynamicResource LabelColour}"/>
 
             <Label/>
 
-            <HorizontalStackLayout>
-                <Label Text="Font Size:"
-                       Style="{DynamicResource LabelColour}"/>
-                <Label/>
-                <Stepper x:Name="FontSizeStepper" Value="20"
-                         Style="{DynamicResource StepperStyle}"/>
+            <HorizontalStackLayout Spacing="92">
+                <Label 
+                       x:Name="fontSizeLabel"
+                       Text="Font Size:"
+                       Style="{DynamicResource LabelColour}"
+                       HorizontalTextAlignment="Start"
+                       FontSize="{DynamicResource FontSize}"/>
+                <Stepper x:Name="FontSizeStepper"
+                         Style="{DynamicResource StepperStyle}"
+                         HorizontalOptions="End"
+                         ValueChanged="FontSizeStepper_ValueChanged"
+                         Minimum="12"   
+                         Maximum="23"/>
             </HorizontalStackLayout>
             
             <Label Text=" "/>
 
-            <HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="5">
                 <Button x:Name="exoButton"
                         Text="Exo Theme"
                         Clicked="exoButton_Clicked"
-                        Style="{DynamicResource Button}"/>
+                        Style="{DynamicResource Button}"
+                        FontSize="{DynamicResource FontSize}"/>
 
                 <Button x:Name="earthButton"
                         Text="Earth Theme"
                         Clicked="earthButton_Clicked"
-                        Style="{DynamicResource Button}"/>
+                        Style="{DynamicResource Button}"
+                        FontSize="{DynamicResource FontSize}"/>
             </HorizontalStackLayout>
-
+            <Label/>
             <Button
                 x:Name="returnButton"
                 Text="Return"
                 Clicked="returnButton_Clicked"
-                Style="{DynamicResource Button}"/>
+                Style="{DynamicResource Button}"
+                FontSize="{Binding }"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

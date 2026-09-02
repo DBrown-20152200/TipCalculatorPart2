@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using TipCalculatorPart2.Themes;
 
 namespace TipCalculatorPart2;
@@ -23,6 +24,7 @@ public partial class PreferenceOptions : ContentPage
     {
         soundToggleSwitch.IsToggled = Preferences.Get("SoundToggle", true);
         darkModeToggle.IsToggled = Preferences.Get("DarkMode", true);
+        FontSizeStepper.Value = Preferences.Default.Get("FontSize", 18.00);
     }
 
     private void returnButton_Clicked(object sender, EventArgs e)
@@ -64,5 +66,11 @@ public partial class PreferenceOptions : ContentPage
         }
 
         Preferences.Set("Theme", "Earth");
+    }
+
+    private void FontSizeStepper_ValueChanged(object sender, ValueChangedEventArgs e)
+    {
+        Application.Current.Resources["FontSize"] = FontSizeStepper.Value;
+        Preferences.Set("FontSize", FontSizeStepper.Value);
     }
 }

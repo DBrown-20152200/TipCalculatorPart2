@@ -10,7 +10,9 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="BackgroundStyle" TargetType="ScrollView">
+            <x:Double x:Key="FontSize">20</x:Double>
+
+                <Style x:Key="BackgroundStyle" TargetType="ScrollView">
                 <Setter Property="BackgroundColor"
                         Value="{DynamicResource PageBackgroundColour}"/>
             </Style>
